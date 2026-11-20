@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA VI Trophy Guide &amp; Tracker — all 55 trophies, offline</title>
+<meta name="description" content="An offline guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, a cited guide for each, a roadmap to the platinum, and a saved checklist.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b94a1f'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23fff7ed' font-family='Georgia,serif'%3E6%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/guide.css">
+</head>
+<body>
+<header class="masthead">
+  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Leonida</p>
+  <h1>GTA VI Trophy Guide &amp; Tracker</h1>
+  <p class="lede">All 55 trophies with their official names, descriptions and grades, a cited guide for each one, and a roadmap to the platinum. Works fully offline; your progress is saved in this browser.</p>
+  <div class="progress" id="progress" aria-label="Progress"></div>
+  <p class="counts" id="counts"></p>
+</header>
+
+<nav class="toolbar" aria-label="Tracker controls">
+  <div class="toolbar-row">
+    <label class="search-label" for="search">Search</label>
+    <input id="search" type="search" placeholder="Search a trophy, guide or source&hellip;" autocomplete="off">
+    <label for="grade">Grade</label>
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </div>
+  <div class="toolbar-row pills" id="kind-pills" role="group" aria-label="Filter by kind"></div>
+  <div class="toolbar-row">
+    <button id="spoiler-toggle" type="button" aria-pressed="false">Spoiler mode: off</button>
+    <label class="check"><input id="hide-earned" type="checkbox"> Hide earned</label>
+    <button id="export-btn" type="button">Export progress</button>
+    <button id="import-btn" type="button">Import progress</button>
+    <input id="import-file" type="file" accept=".json,application/json" hidden>
+    <button id="reset-btn" type="button" class="danger">Reset</button>
+  </div>
+  <p class="toolbar-note">Spoiler mode hides the names and descriptions of story trophies until you earn them. Export saves your checklist as a file; import restores it.</p>
+</nav>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" data-view="checklist" class="tab active">Checklist</button>
+  <button type="button" data-view="roadmap" class="tab">Roadmap to the Platinum</button>
+  <button type="button" data-view="hundred" class="tab">100% Checklist</button>
+</nav>
+
+<main id="main">
+  <section id="view-checklist" class="view">
+    <h2>Checklist <span class="showing" id="showing"></span></h2>
+    <div class="cards" id="cards"></div>
+    <p class="empty" id="empty" hidden>No trophies match this filter. Try clearing the search or choosing another kind.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2 id="roadmap-title">Roadmap to the Platinum</h2>
+    <p class="roadmap-total" id="roadmap-total"></p>
+    <div id="roadmap-phases"></div>
+    <div class="warning" id="roadmap-warnings"></div>
+    <p class="roadmap-note">Phases and hour estimates: PowerPyx (about 200 hours in total) and Push Square (300 hours or more). Chapter and mission names are the official ones from the trophy list.</p>
+  </section>
+
+  <section id="view-hundred" class="view" hidden>
+    <h2>100% Completion Checklist</h2>
+    <p class="lede-small">The numbers below are what the in-game 100% checklist asks for — not the game's full totals. They are the summary behind the gold trophy <strong>A Long Road</strong>, compiled from PowerPyx, Push Square and KeenGamer.</p>
+    <table class="hundred-table" id="hundred-table">
+      <thead><tr><th>What the checklist asks for</th><th>Needed</th><th>Source</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="roadmap-note">The checklist itself only opens after the story (Touch Pad, then Progress, then Stats, then 100% Completion). Progress made during the story already counts.</p>
+  </section>
+
+  <section id="view-detail" class="view" hidden>
+    <p class="back"><button type="button" id="back-btn">&larr; Back to checklist</button></p>
+    <article class="detail" id="detail"></article>
+    <p class="detail-nav" id="detail-nav"></p>
+  </section>
+</main>
+
+<footer class="footer">
+  <p><strong>Sources.</strong> Trophy names, descriptions and grades are the official PlayStation list, as published on Exophase and PSNProfiles. Every guide cites its sources by name beside it — PowerPyx, Push Square, KeenGamer, GTABase, Exophase, PSNProfiles and video guides — and is written in this guide's own words. Two trophies (Bad Luck, I Guess; Ten Pin) have no confirmed method yet, and this guide says so rather than inventing one.</p>
+  <p>This is an unofficial fan guide. It uses no Rockstar Games logo, artwork or game screenshots. All 55 trophies are single-player; there are no online trophies.</p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
