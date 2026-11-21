@@ -4,99 +4,95 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GTA VI Trophy Guide &amp; Tracker — All 55 Trophies</title>
-<meta name="description" content="An offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: cited guides, a platinum roadmap, filters and a spoiler setting.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c2410c'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23fff' font-family='Georgia,serif'%3EV%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PS5: cited guides, roadmap to the platinum, filters, spoiler mode and a 100% checklist.">
 <link rel="stylesheet" href="css/guide.css">
 </head>
 <body>
 <header class="masthead">
-  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Leonida</p>
-  <h1>GTA VI Trophy Guide &amp; Tracker</h1>
-  <p class="lede">All 55 trophies with their official names, descriptions and grades, a cited guide for each one, and a roadmap to the platinum. Works fully offline; your progress is saved in this browser.</p>
-  <div class="progress-wrap" aria-label="Platinum progress">
-    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-    <p class="progress-line" id="progressLine">0 / 55 earned &middot; 0%</p>
+  <div class="masthead-inner">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+    <h1>Leonida Trophy Ledger</h1>
+    <p class="lede">Every trophy, in your own words, with its sources named. No video links, no network — this guide works fully offline.</p>
+    <div class="progress" role="status" aria-label="Trophy progress">
+      <div class="progress-text"><strong id="earnedCount">0 / 55</strong> earned <span id="earnedPct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <p class="grade-counts" id="gradeCounts"></p>
+    </div>
+    <nav class="tabs" aria-label="Views">
+      <button class="tab active" data-view="guide" type="button">Guide &amp; Tracker</button>
+      <button class="tab" data-view="roadmap" type="button">Roadmap to Platinum</button>
+      <button class="tab" data-view="checklist" type="button">100% Checklist</button>
+    </nav>
   </div>
-  <p class="facts-line" id="factsLine">Platinum 0/1 &middot; Gold 0/2 &middot; Silver 0/6 &middot; Bronze 0/46 &middot; 0 online &middot; 1 possibly missable</p>
 </header>
 
-<nav class="toolbar" aria-label="Tracker controls">
-  <div class="toolbar-row">
-    <label class="search-label" for="searchBox">Search</label>
-    <input id="searchBox" type="search" placeholder="Search a trophy, guide or source&hellip;" autocomplete="off">
-    <label class="grade-label" for="gradeSelect">Grade</label>
-    <select id="gradeSelect">
-      <option value="all">All grades</option>
-      <option value="platinum">Platinum</option>
-      <option value="gold">Gold</option>
-      <option value="silver">Silver</option>
-      <option value="bronze">Bronze</option>
-    </select>
-  </div>
-  <div class="toolbar-row kind-row" id="kindRow" role="group" aria-label="Filter by kind">
-    <button type="button" class="kind-btn is-active" data-kind="all">All</button>
-    <button type="button" class="kind-btn" data-kind="story">Story</button>
-    <button type="button" class="kind-btn" data-kind="missable">Missable</button>
-    <button type="button" class="kind-btn" data-kind="collectibles">Collectibles</button>
-    <button type="button" class="kind-btn" data-kind="activities">Activities</button>
-    <button type="button" class="kind-btn" data-kind="side">Side &amp; misc</button>
-    <button type="button" class="kind-btn" data-kind="online">Online</button>
-  </div>
-  <div class="toolbar-row actions-row">
-    <button type="button" id="spoilerBtn" class="action-btn" aria-pressed="false">Spoiler mode: off</button>
-    <label class="check-label"><input type="checkbox" id="hideEarned"> Hide earned</label>
-    <button type="button" id="exportBtn" class="action-btn">Export progress</button>
-    <button type="button" id="importBtn" class="action-btn">Import progress</button>
-    <input type="file" id="importFile" accept="application/json,.json" hidden>
-    <button type="button" id="resetBtn" class="action-btn danger">Reset</button>
-  </div>
-  <p class="toolbar-note">Spoiler mode hides the names and descriptions of story trophies until you earn them. Export saves your checklist as a file; import restores it.</p>
-</nav>
-
-<nav class="tabs" aria-label="Guide sections">
-  <button type="button" class="tab-btn is-active" data-tab="checklist">Checklist</button>
-  <button type="button" class="tab-btn" data-tab="roadmap">Roadmap to the Platinum</button>
-  <button type="button" class="tab-btn" data-tab="hundred">100% Checklist</button>
-</nav>
-
 <main>
-  <section id="view-checklist" class="view is-visible" aria-label="Trophy checklist">
-    <h2>Checklist <span class="showing" id="showingLine">Showing 55 of 55 trophies</span></h2>
-    <p class="missable-banner" id="missableBanner">&#9888; One trophy can be missed: <strong>Positive Mental Attitude</strong> — do the Chapter 1 balcony meditation after the mission Down to Earth. It is flagged on its card.</p>
+  <section id="view-guide" class="view active" aria-label="Trophy guide and tracker">
+    <div class="toolbar">
+      <label class="search"><span class="sr-only">Search trophies</span><input id="search" type="search" placeholder="Search a trophy or guide…" autocomplete="off"></label>
+      <label>Kind
+        <select id="kindFilter">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="missable">Missable</option>
+          <option value="collectibles">Collectibles</option>
+          <option value="activities">Activities</option>
+          <option value="side">Side</option>
+          <option value="platinum">Platinum</option>
+        </select>
+      </label>
+      <label>Grade
+        <select id="gradeFilter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="check"><input id="hideEarned" type="checkbox"> Hide earned</label>
+      <label class="check"><input id="spoilerMode" type="checkbox"> Spoiler-safe mode</label>
+      <span class="showing" id="showing"></span>
+    </div>
+    <p class="missable-banner" id="missableBanner"><strong>One missable trophy:</strong> Positive Mental Attitude — meditate at every spot before the final mission. Filter “Missable” to see it.</p>
     <div class="cards" id="cards"></div>
-    <p class="empty" id="emptyState" hidden>No trophies match this filter. Try another kind, grade or search.</p>
+    <p class="empty" id="emptyState" hidden>No trophies match these filters.</p>
   </section>
 
   <section id="view-roadmap" class="view" aria-label="Roadmap to the platinum">
-    <h2>Roadmap to the Platinum</h2>
-    <p class="roadmap-intro" id="roadmapIntro"></p>
-    <div class="facts-grid" id="factsGrid"></div>
-    <h3>The platinum route — in order</h3>
-    <ol class="route-list" id="routeList"></ol>
-    <h3>All three phases</h3>
+    <div class="roadmap-head">
+      <h2 id="roadmapTitle">Road to the Platinum</h2>
+      <p id="roadmapMeta"></p>
+      <p class="missable-banner"><strong>One missable trophy:</strong> Positive Mental Attitude — meditate at every spot before the final mission.</p>
+    </div>
+    <ol class="route" id="route"></ol>
+    <h3>Three phases</h3>
     <div class="phases" id="phases"></div>
   </section>
 
-  <section id="view-hundred" class="view" aria-label="100 percent checklist">
-    <h2>100% Checklist <span class="showing">The blocks behind A Long Road</span></h2>
-    <p class="roadmap-intro">The checklist unlocks after the story under Progress &gt; Stats &gt; 100% Completion. It is closer to 60% true completion: most side quests are not needed, but every robbery, underwater discovery, shooting range, drone race and Bret quest is required, plus 70 of the 80 challenges.</p>
-    <table class="hundred-table">
-      <thead><tr><th>What it needs</th><th>Needed</th><th>Counts toward</th></tr></thead>
-      <tbody id="hundredBody"></tbody>
-    </table>
+  <section id="view-checklist" class="view" aria-label="100 percent checklist">
+    <h2>The 100% Checklist</h2>
+    <p class="lede">Everything the in-game 100% completion stat counts, in one place. Tick items off as you clear them — this list is saved on this device.</p>
+    <ul class="checklist" id="checklist"></ul>
+    <p class="checklist-total" id="checklistTotal"></p>
   </section>
 
-  <section id="view-detail" class="view" aria-label="Trophy detail">
-    <button type="button" class="action-btn" id="backBtn">&larr; Back to checklist</button>
-    <article class="detail" id="detail"></article>
+  <section class="tools" aria-label="Save and share progress">
+    <h2>Your progress, your device</h2>
+    <p>Progress is saved in this browser only (localStorage). Export a backup file, or import one to restore it on another machine.</p>
+    <div class="tool-row">
+      <button id="exportBtn" type="button">Export progress (.json)</button>
+      <label class="import-label">Import progress <input id="importFile" type="file" accept="application/json"></label>
+      <button id="resetBtn" type="button">Reset progress</button>
+    </div>
+    <p class="tools-note" id="toolsNote"></p>
   </section>
 </main>
 
 <footer>
-  <p><strong>Sources.</strong> Trophy names, descriptions and grades are PlayStation's own words (official list published 18 November 2026, via Exophase and PSNProfiles). Every guide is written in this guide's own words and names its sources beside the trophy: PowerPyx, Push Square, KeenGamer, Exophase, PSNProfiles, GTADB, Sixshore, GameMapa, Vice City Hustle, GameSpot, GameRant, DamnModz, GTASpotter and BoostingFactory. Rarity is Exophase's share of tracked players, read 20 November 2026. Difficulty and time are this guide's estimates. One trophy, Bad Luck, I Guess, has no confirmed method yet and is marked unknown rather than guessed.</p>
-  <p>No Rockstar artwork or logo is used; the look is this guide's own. No network is needed: the app loads only its own files.</p>
+  <p>Unofficial fan guide. Grand Theft Auto and GTA are trademarks of their owners; this guide uses no game art, logos or screenshots. Trophy names and descriptions are shown as PlayStation publishes them; all guidance text is written for this guide and names its sources. Works offline — no network requests at runtime.</p>
 </footer>
 
-<script src="js/app.js"></script>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>

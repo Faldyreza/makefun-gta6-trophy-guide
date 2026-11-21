@@ -1,78 +1,68 @@
-# GTA VI Trophy Guide & Tracker
+# Leonida Trophy Ledger — GTA VI Trophy Guide & Tracker
 
 [![make.fun](https://make.fun/badge.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
 [![make.fun entry](https://make.fun/badge-entry.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
-[![make.fun leaderboard](https://make.fun/badge-leaderboard.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
 
-An offline guide and tracker for all **55 PlayStation 5 trophies** of Grand Theft Auto VI
-(1 platinum, 2 gold, 6 silver, 46 bronze) — built for the
+An offline guide and tracker for all **55 Grand Theft Auto VI trophies** on PlayStation 5
+(1 platinum, 2 gold, 6 silver, 46 bronze — 28 hidden, 1 missable), built for the
 [make.fun bounty gta6-trophy-guide-01](https://make.fun/bounty/gta6-trophy-guide-01).
 
-## What it is
+## What it does
 
-- **Checklist tracker** — every trophy with its official name, description and grade,
-  saved in the browser (localStorage), with export to a file and import back.
-- **Filters** — by kind (story, missable, collectibles, activities, side & misc, online),
-  by grade, and by free-text search across names, guides and sources.
-- **Spoiler mode** — hides the names and descriptions of story trophies until you earn
-  them. In spoiler mode no grade or kind chip is shown on a hidden card.
-- **Roadmap to the Platinum** — all three phases with hour estimates, plus a
-  seven-step platinum route in order, from the Chapter 1 meditation to the final cleanup.
-- **100% Checklist tab** — the blocks behind A Long Road, each with its required count.
-- **A cited guide per trophy** — written in this guide's own words, naming its sources
-  beside the trophy (PowerPyx, Push Square, KeenGamer, Exophase, PSNProfiles, GTADB,
-  Sixshore, GameMapa, Vice City Hustle, GameSpot, GameRant, DamnModz, GTASpotter,
-  BoostingFactory). Each trophy also carries a difficulty rating, a time estimate and
-  its Exophase rarity. Video walkthrough links appear only where a real video was
-  verified — never a guessed URL.
-- **Honest unknowns** — one trophy, Bad Luck, I Guess, has no confirmed unlock method
-  yet and is marked unknown rather than guessed. Ten Pin carries its best lead,
-  clearly flagged as unconfirmed.
+- **Guide & tracker** — every trophy with its official name and description, a guide in
+  this guide's own words, numbered steps, difficulty (1–5), a time estimate, and the
+  published sources it draws on — named as text, with no links anywhere, so the whole
+  guide works offline.
+- **One missable trophy, flagged everywhere** — Positive Mental Attitude (meditate at
+  every spot before the final mission). The banner, the Missable filter and the roadmap
+  all point at it first.
+- **Roadmap to the platinum** — 7 ordered steps across 3 phases (Story First 60–80 h,
+  Leonida Cleanup 100–150 h, Platinum Push 40–60 h), plus the 100% completion checklist.
+- **Tracker** — click a trophy to mark it earned (saved in localStorage), with search,
+  filters by kind and grade, a hide-earned toggle, and a spoiler-safe mode that hides
+  story trophy names and descriptions until you earn them.
+- **Progress tools** — export your progress to JSON, import it back, or reset it.
+- **Honest unknowns** — Bad Luck, I Guess has no confirmed method yet and says so;
+  Fair Game and Ten Pin are marked as community leads, not confirmed facts.
 
-## Facts that shape the route
+## How to use it
 
-- Difficulty 4/10, about 200 hours to the platinum (PowerPyx; Push Square says 300+).
-- One playthrough is enough. No online trophies. Cheats disable trophies and saving.
-- One trophy can be missed: **Positive Mental Attitude** — the Chapter 1 balcony
-  meditation after the mission Down to Earth. It is flagged on its card, in the
-  roadmap and in the banner above the checklist.
-- No mission replay, so keep a manual save at the start and end of every chapter.
-
-## Run it
-
-Static files, no build step. Serve `app/` with any static server and open
-`index.html` in desktop Chrome. It works with the network off: the app loads only
-its own files.
+Open `app/index.html` in a desktop browser. No server, no build step, no network:
+the app only fetches its own `app/data/trophies.json` and `app/data/roadmap.json`.
 
 ```sh
+# or serve it locally
 node serve.ts
-# opens http://localhost:8080
+# then open http://localhost:8080
 ```
 
-## How it is built
+## Build
 
-`main.ts` (Node 22, standard library only) copies `app/` and `screenshots/` to
-`/output` (or `$MAKEFUN_OUTPUT_DIR`) and writes `/output/dossier.json` with
-`buildDossier` from `vendor/makefun-frontend.ts`.
+`main.ts` (Node 22+, standard library only) copies `app/` and `screenshots/` to
+`/output` and writes `/output/dossier.json` with the vendored make.fun library:
 
 ```sh
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-Screenshots in `screenshots/` are real headless-Chrome renders of this app at
-1280×800: the checklist (cover), the roadmap, a trophy detail, and spoiler mode.
+Run it twice — the dossier is byte-identical on repeat runs.
+
+## Screenshots
+
+Four real renders of the app in headless Chrome (1280×800), listed in `shots.json`:
+
+1. `1-cover.jpg` — guide view with progress and filters
+2. `2-roadmap.jpg` — the 7-step roadmap to the platinum
+3. `3-detail.jpg` — one trophy open, with cited steps (Capital Offense)
+4. `4-spoiler.jpg` — spoiler-safe mode on
 
 ## Sources
 
-Trophy names, descriptions and grades are PlayStation's own words (official list
-published 18 November 2026, via Exophase and PSNProfiles). Guides are this
-entry's own words; each trophy names the published guides it draws on. No
-Rockstar logo or artwork is used — the look is this guide's own.
+Guides cite their published sources by name beside each trophy: Exophase, Push Square,
+TrueTrophies, PSNProfiles, KeenGamer, GTABase, GameRant, GameSpot and PowerPyx
+(never listed first). Trophy names and descriptions are shown exactly as PlayStation
+publishes them. No game art, logos or screenshots are used — the look is original CSS.
 
 ## Owner
 
-Built by **Faldyreza** ([@fldyrza](https://make.fun/r/rvk09evk) on make.fun) for the
-gta6-trophy-guide-01 bounty. Play with the referral link:
-https://make.fun/r/rvk09evk
-
-License: MIT.
+Built by Faldyreza for the make.fun bounty. Referral: https://make.fun/r/rvk09evk
